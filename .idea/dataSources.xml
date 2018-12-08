@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db_djrank@localhost" uuid="6cc78cf7-9c86-4fa3-a15c-2fd4784cf0fc">
-      <driver-ref>derby.remote</driver-ref>
-      <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
-      <jdbc-driver>org.apache.derby.jdbc.ClientDriver</jdbc-driver>
-      <jdbc-url>jdbc:derby://localhost:1527/db_djrank</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="db_mypresskit" uuid="ba236e91-e2f8-4563-9c97-90eaedfff2cc">
+    <data-source source="LOCAL" name="db_mypresskit" uuid="d0f64616-4ab2-4aa3-8ad5-936295bb8326">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>MySQL MyPressKit DB</remarks>
+      <remarks>mypresskit database</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/db_mypresskit</jdbc-url>
       <driver-properties>

@@ -29,10 +29,10 @@ public class DjArrayApplicationTests {
 	public void testCreateSingleRecord() {
 		Dj dj = new Dj();
 		//dj.setId();
-		dj.setFname("izzy");
-		dj.setLname("M");
+		dj.setFirstName("izzy");
+		dj.setLastName("M");
 		dj.setEmail("a@b.com");
-		dj.setAka("cx-1");
+		dj.setAlsoKnownAs("cx-1");
 		repo.save(dj);
 	}
 
@@ -41,13 +41,13 @@ public class DjArrayApplicationTests {
 
 	    for (int x=0; x<=100; x++){
 	        Dj dj = new Dj();
-	        dj.setFname("Test Dj " + x);
-	        dj.setLname("Last Name" + x);
+	        dj.setFirstName("Test Dj " + x);
+	        dj.setLastName("Last Name" + x);
 	        dj.setEmail("a@c." + x);
-	        dj.setAka("CX-" + x);
-            dj.setSc("SoundCloud"+x);
-            dj.setMc("MixCloud"+ x);
-	        dj.setFb("facebook" + x);
+	        dj.setAlsoKnownAs("CX-" + x);
+            dj.setSoundcloud("SoundCloud"+x);
+            dj.setMixcloud("MixCloud"+ x);
+	        dj.setFacebook("facebook" + x);
 	        dj.setViewed(1);
 	        dj.setPicture("Path to pic"+x);
 	        repo.save(dj);
@@ -72,7 +72,7 @@ public class DjArrayApplicationTests {
     @Test
     public void testReadAll(){
 	    List<Dj> djList = (List<Dj>) repo.findAll();
-	    djList.forEach(p->System.out.println(p.getFname()));
+	    djList.forEach(p->System.out.println(p.getFirstName()));
     }
 
     @Test
@@ -89,9 +89,9 @@ public class DjArrayApplicationTests {
 
     @Test
     public void testFindByName(){
-	    List<Dj> dj = repo.findByFname("ale");
+	    List<Dj> dj = repo.findByFirstName("ale");
         System.out.println("Dj found:");
-        dj.forEach(p->System.out.print(p.getFname()));
+        dj.forEach(p->System.out.print(p.getFirstName()));
     }
 
     @Test

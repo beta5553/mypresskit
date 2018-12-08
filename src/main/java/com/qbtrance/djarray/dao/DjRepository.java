@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface DjRepository extends CrudRepository<Dj, Integer> {
 
-    List<Dj> findByFname(String fname);
+    List<Dj> findByFirstName(String fname);
     List<Dj> findByEmailLike (String email);
-    List<Dj> findByLnameLike(String lname);
+    List<Dj> findByLastNameLike(String lname);
 
 }

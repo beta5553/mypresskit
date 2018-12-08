@@ -1,8 +1,12 @@
 package com.qbtrance.djarray.model;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -11,27 +15,28 @@ public class Dj {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String fname;
-    private String lname;
+    private String firstName;
+    private String lastName;
     private String email;
-    private String aka;
-    private String sc;
-    private String mc;
-    private String fb;
+    private String alsoKnownAs;
+    private String soundcloud;
+    private String mixcloud;
+    private String facebook;
     private String picture;
     private int viewed;
 
     public Dj(){}
 
-    public Dj(int id, String fname, String lname, String email, String aka, String sc, String mc, String fb, String picture, int viewed) {
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
+    public Dj(String firstName, String lastName, String email, String alsoKnownAs,
+              String soundcloud, String mixcloud, String facebook,
+              String picture, int viewed) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        this.aka = aka;
-        this.sc = sc;
-        this.mc = mc;
-        this.fb = fb;
+        this.alsoKnownAs = alsoKnownAs;
+        this.soundcloud = soundcloud;
+        this.mixcloud = mixcloud;
+        this.facebook = facebook;
         this.picture = picture;
         this.viewed = viewed;
     }
@@ -40,24 +45,25 @@ public class Dj {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+//   Commented to avoid id to be set manually.
+//   public void setId(int id) {
+//        this.id = id;
+//    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getFname() {
-        return fname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getLname() {
-        return lname;
-    }
-
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -68,36 +74,36 @@ public class Dj {
         this.email = email;
     }
 
-    public String getAka() {
-        return aka;
+    public String getAlsoKnownAs() {
+        return alsoKnownAs;
     }
 
-    public void setAka(String aka) {
-        this.aka = aka;
+    public void setAlsoKnownAs(String alsoKnownAs) {
+        this.alsoKnownAs = alsoKnownAs;
     }
 
-    public String getSc() {
-        return sc;
+    public String getSoundcloud() {
+        return soundcloud;
     }
 
-    public void setSc(String sc) {
-        this.sc = sc;
+    public void setSoundcloud(String soundcloud) {
+        this.soundcloud = soundcloud;
     }
 
-    public String getMc() {
-        return mc;
+    public String getMixcloud() {
+        return mixcloud;
     }
 
-    public void setMc(String mc) {
-        this.mc = mc;
+    public void setMixcloud(String mixcloud) {
+        this.mixcloud = mixcloud;
     }
 
-    public String getFb() {
-        return fb;
+    public String getFacebook() {
+        return facebook;
     }
 
-    public void setFb(String fb) {
-        this.fb = fb;
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
     public String getPicture() {
@@ -120,15 +126,38 @@ public class Dj {
     public String toString() {
         return "Dj{" +
                 "id=" + id +
-                ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", aka='" + aka + '\'' +
-                ", sc='" + sc + '\'' +
-                ", mc='" + mc + '\'' +
-                ", fb='" + fb + '\'' +
+                ", alsoKnownAs='" + alsoKnownAs + '\'' +
+                ", soundcloud='" + soundcloud + '\'' +
+                ", mixcloud='" + mixcloud + '\'' +
+                ", facebook='" + facebook + '\'' +
                 ", picture='" + picture + '\'' +
                 ", viewed=" + viewed +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dj dj = (Dj) o;
+        return id == dj.id &&
+                viewed == dj.viewed &&
+                Objects.equals(firstName, dj.firstName) &&
+                Objects.equals(lastName, dj.lastName) &&
+                Objects.equals(email, dj.email) &&
+                Objects.equals(alsoKnownAs, dj.alsoKnownAs) &&
+                Objects.equals(soundcloud, dj.soundcloud) &&
+                Objects.equals(mixcloud, dj.mixcloud) &&
+                Objects.equals(facebook, dj.facebook) &&
+                Objects.equals(picture, dj.picture);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, alsoKnownAs,
+                soundcloud, mixcloud, facebook, picture, viewed);
     }
 }
